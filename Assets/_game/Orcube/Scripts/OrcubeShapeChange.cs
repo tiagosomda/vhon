@@ -30,7 +30,7 @@ public class OrcubeShapeChange : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerExit() {
+	void OnTriggerExit(Collider other)  {
 		if (other.CompareTag("Player"))
 		{
 			Debug.Log ("exiting Trigger");
