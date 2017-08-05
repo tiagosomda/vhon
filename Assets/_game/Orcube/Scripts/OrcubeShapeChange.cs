@@ -21,14 +21,21 @@ public class OrcubeShapeChange : MonoBehaviour {
 		skinnedMeshRenderer.SetBlendShapeWeight(0,Mathf.Lerp(skinnedMeshRenderer.GetBlendShapeWeight(0), blendGoal,blendSpeed * Time.deltaTime));
 	}
 
-	void OnTriggerEnter() {
-		Debug.Log ("Entering Trigger");
-		blendGoal = blendTwo;
+	void OnTriggerEnter(Collider other) {
+
+		if (other.CompareTag("PowerCube"))
+		{
+			Debug.Log ("Entering Trigger");
+			blendGoal = blendTwo;
+		}
 	}
 
 	void OnTriggerExit() {
-		Debug.Log ("exiting Trigger");
-		blendGoal = blendOne;
+		if (other.CompareTag("Player"))
+		{
+			Debug.Log ("exiting Trigger");
+			blendGoal = blendOne;
+		}
 	}
 
 
