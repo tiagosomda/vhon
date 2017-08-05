@@ -37,11 +37,6 @@ public class GameController : MonoBehaviour
     {
 
     }
-
-	void Start()
-
-
-
     //Update is called every frame.
     void Update()
     {
