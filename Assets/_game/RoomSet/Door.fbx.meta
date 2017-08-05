@@ -27,6 +27,10 @@ ModelImporter:
     4300002: Door
     4300004: DoorFram
     4300006: WallWithDoor
+    6400000: Door
+    6400002: Door.001
+    6400004: DoorFram
+    6400006: WallWithDoor
   materials:
     importMaterials: 1
     materialName: 0
@@ -56,7 +60,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
