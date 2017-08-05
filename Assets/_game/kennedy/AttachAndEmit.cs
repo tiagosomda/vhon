@@ -24,6 +24,8 @@ public class AttachAndEmit : NVRAttachJoint
 
     protected override void Detach()
     {
+        base.Detach();
+        
         if (_activate != null)
         {
             StopCoroutine(_activate);
