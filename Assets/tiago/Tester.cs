@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class pedestal_trigger : Singleton<pedestal_trigger> {
+public class Tester : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		Debug.Log(GameController.Level);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
-
-
 }

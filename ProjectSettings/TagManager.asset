@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - PowerCube
+  - PowerMorpher
   layers:
   - Default
   - TransparentFX
