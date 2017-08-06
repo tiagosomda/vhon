@@ -68,7 +68,7 @@ Material:
     - _Metallic: 0
     - _MinGlow: 0.098
     - _MinPowerMultiplier: 1
-    - _MinimumTranspearancey: 0.3
+    - _MinimumTranspearancey: 1
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -77,7 +77,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Transpearancy: 1
-    - _TranspearancyFrequency: 1
+    - _TranspearancyFrequency: 0
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
