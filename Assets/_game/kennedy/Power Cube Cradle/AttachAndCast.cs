@@ -29,12 +29,8 @@ public class AttachAndCast : NVRAttachJoint
     {
         if (IsAttached == false && acceptableObjects.Contains(col.gameObject))
         {
-            //col.gameObject.GetComponent<OrcubeShapeChange>().ca.GoSuck();
             base.OnTriggerStay(col);
-            Debug.Log("Is NOt Attached");
         }
-
-        Debug.Log("Is attached");
     }
 
 
@@ -68,8 +64,11 @@ public class AttachAndCast : NVRAttachJoint
             }
 
             Debug.Log("Send DefaultTrigger");
-            other.SendMessage("DefaultTrigger", true,
-                SendMessageOptions.DontRequireReceiver);
+
+            if(other != null)
+            {
+                other.SendMessage("DefaultTrigger", true,SendMessageOptions.DontRequireReceiver);
+            }
         }
     } 
 
@@ -86,8 +85,10 @@ public class AttachAndCast : NVRAttachJoint
                     StopCoroutine(c);
             }
 
-            other.SendMessage("DefaultTrigger", false,
-                SendMessageOptions.DontRequireReceiver);
+            if(other != null)
+            {
+                other.SendMessage("DefaultTrigger", false,SendMessageOptions.DontRequireReceiver);
+            }
         }
     } 
 }
