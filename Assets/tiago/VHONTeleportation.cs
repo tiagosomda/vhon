@@ -2,17 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using NewtonVR;
+using Valve.VR.InteractionSystem;
 
 [RequireComponent(typeof(NVRHand))]
 public class VHONTeleportation : MonoBehaviour {
 
 	public Valve.VR.InteractionSystem.TeleportArc teleportArc;
 
+    public float arcDistance;
     public Color LineColor;
     public float LineWidth = 0.02f;
     private LineRenderer Line;
     private NVRHand Hand;
     private NVRPlayer Player;
+
+	public Transform destinationReticleTransform;
+	public Transform invalidReticleTransform;
+
     private void Awake()
     {
         Line = this.GetComponent<LineRenderer>();
@@ -34,39 +40,18 @@ public class VHONTeleportation : MonoBehaviour {
         Player = Hand.Player;
     }
 
-	public void Update()
-    {
-		Vector3 pointerStart = transform.position; //pointerStartTransform.position;
-		Vector3 pointerEnd;
-		Vector3 pointerDir = transform.position; //pointerStartTransform.forward;
-		bool hitSomething = false;
-		bool showPlayAreaPreview = false;
-		Vector3 playerFeetOffset = transform.position; //player.trackingOriginTransform.position - player.feetPositionGuess;
-		Vector3 arcVelocity = pointerDir * 3; //arcDistance;
-		//TeleportMarkerBase hitTeleportMarker = null;
-		//Check pointer angle
-		float dotUp = Vector3.Dot( pointerDir, Vector3.up );
-		float dotForward = Vector3.Dot( pointerDir, transform.forward); //player.hmdTransform.forward );
-		bool pointerAtBadAngle = false;
-		if ( ( dotForward > 0 && dotUp > 0.75f ) || ( dotForward < 0.0f && dotUp > 0.5f ) )
-		{
-			pointerAtBadAngle = true;
-		}
-
-		//Trace to see if the pointer hit anything
-		RaycastHit hitInfo;
-		teleportArc.SetArcData( pointerStart, arcVelocity, true, pointerAtBadAngle );
-		if ( teleportArc.DrawArc( out hitInfo ) )
-		{
-			hitSomething = true;
-		}
-    }
-
     private void LateUpdate()
     {
         Line.enabled = (Hand != null && Hand.Inputs[NVRButtons.Trigger].SingleAxis > 0.01f);
         if (Line.enabled == true)
         {
+            //NvrTeleport();
+            VHONTeleport();
+        }
+    }
+
+    private void NvrTeleport()
+    {
             Line.material.SetColor("_Color", LineColor);
             NVRHelpers.LineRendererSetColor(Line, LineColor, LineColor);
             NVRHelpers.LineRendererSetWidth(Line, LineWidth, LineWidth);
@@ -101,6 +86,78 @@ public class VHONTeleportation : MonoBehaviour {
                 endPoint = this.transform.position + (this.transform.forward * 1000f);
             }
             Line.SetPositions(new Vector3[] { this.transform.position, endPoint });
-        }
     }
+
+    private void VHONTeleport()
+    {
+        /*
+        Vector3 pointerStart = Hand.gameObject.transform.position; //pointerStartTransform.position;
+		Vector3 pointerEnd;
+		Vector3 pointerDir = Hand.gameObject.transform.forward; //pointerStartTransform.forward;
+		bool hitSomething = false;
+		bool showPlayAreaPreview = false;
+		Vector3 playerFeetOffset = Player.gameObject.transform.position; //player.trackingOriginTransform.position - player.feetPositionGuess;
+		Vector3 arcVelocity = pointerDir * arcDistance; //arcDistance;
+		
+        TeleportMarkerBase hitTeleportMarker = null;
+
+		//Check pointer angle
+		float dotUp = Vector3.Dot( pointerDir, Vector3.up );
+		float dotForward = Vector3.Dot( pointerDir, Player.gameObject.transform.forward); //player.hmdTransform.forward );
+		bool pointerAtBadAngle = false;
+		if ( ( dotForward > 0 && dotUp > 0.75f ) || ( dotForward < 0.0f && dotUp > 0.5f ) )
+		{
+			pointerAtBadAngle = true;
+		}
+
+		//Trace to see if the pointer hit anything
+		RaycastHit hitInfo;
+		teleportArc.SetArcData( pointerStart, arcVelocity, true, pointerAtBadAngle );
+		if ( teleportArc.DrawArc( out hitInfo ) )
+		{
+			hitSomething = true;
+		}
+
+
+        if ( pointerAtBadAngle )
+		{
+			hitTeleportMarker = null;
+		}
+
+		//HighlightSelected( hitTeleportMarker );
+
+		if ( hitTeleportMarker != null ) //Hit a teleport marker
+		{
+			if ( hitTeleportMarker.locked )
+			{
+			    teleportArc.SetColor( pointerLockedColor );
+                #if (UNITY_5_4)
+				pointerLineRenderer.SetColors( pointerLockedColor, pointerLockedColor );
+                #else
+				pointerLineRenderer.startColor = pointerLockedColor;
+				pointerLineRenderer.endColor = pointerLockedColor;
+                #endif
+				destinationReticleTransform.gameObject.SetActive( false );
+			}
+			else
+			{
+			    teleportArc.SetColor( pointerValidColor );
+                #if (UNITY_5_4)
+				pointerLineRenderer.SetColors( pointerValidColor, pointerValidColor );
+                #else
+				pointerLineRenderer.startColor = pointerValidColor;
+				pointerLineRenderer.endColor = pointerValidColor;
+                #endif
+				destinationReticleTransform.gameObject.SetActive( hitTeleportMarker.showReticle );
+			}
+
+			offsetReticleTransform.gameObject.SetActive( true );
+
+			invalidReticleTransform.gameObject.SetActive( false );
+
+			pointedAtTeleportMarker = hitTeleportMarker;
+			pointedAtPosition = hitInfo.point;
+        }
+        */
+    }         
 }
