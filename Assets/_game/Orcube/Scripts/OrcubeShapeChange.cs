@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OrcubeShapeChange : MonoBehaviour {
 
-    private CubeAudio ca = CubeAudio.Instance;
+    private CubeAudio ca;
 
 	public string PowerMorpherTag = "PowerMorpher";
 
@@ -19,6 +19,7 @@ public class OrcubeShapeChange : MonoBehaviour {
 	BoxCollider boxCollider;
 
 	void Start(){
+		ca = CubeAudio.Instance;
 		skinnedMeshRenderer = gameObject.GetComponent<SkinnedMeshRenderer> ();
 		blendGoal = blendOne;
 	}
