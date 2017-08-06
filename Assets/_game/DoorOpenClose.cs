@@ -42,17 +42,17 @@ public class DoorOpenClose : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if(Input.GetKeyDown(KeyCode.Alpha2))
-		{
-			DefaultTrigger(true);
-		}
+	// void Update () {
+	// 	if(Input.GetKeyDown(KeyCode.Alpha2))
+	// 	{
+	// 		DefaultTrigger(true);
+	// 	}
 
-		if(Input.GetKeyDown(KeyCode.Alpha1))
-		{
-			DefaultTrigger(false);
-		}
-	}
+	// 	if(Input.GetKeyDown(KeyCode.Alpha1))
+	// 	{
+	// 		DefaultTrigger(false);
+	// 	}
+	// }
 
 	public void DefaultTrigger(bool state)
 	{
@@ -60,7 +60,7 @@ public class DoorOpenClose : MonoBehaviour {
 		{
 			StopCoroutine(routine);	
 		}
-		StartCoroutine(OpenCloseDoor(state));
+		routine = StartCoroutine(OpenCloseDoor(state));
 	}
 
 	private IEnumerator OpenCloseDoor(bool open)
