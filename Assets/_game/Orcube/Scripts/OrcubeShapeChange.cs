@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class OrcubeShapeChange : MonoBehaviour {
+
+	public string PowerMorpherTag = "PowerMorpher";
+
 	SkinnedMeshRenderer skinnedMeshRenderer;
 	float blendOne = 0f;
 	float blendTwo = 100f;
@@ -13,7 +16,6 @@ public class OrcubeShapeChange : MonoBehaviour {
 	void Start(){
 		skinnedMeshRenderer = gameObject.GetComponent<SkinnedMeshRenderer> ();
 		blendGoal = blendOne;
-
 	}
 
 	//Mathf.Lerp(skinnedMeshRenderer.GetBlendShapeWeight(0),blendGoal,blendSpeed)
@@ -23,15 +25,15 @@ public class OrcubeShapeChange : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 
-		if (other.CompareTag("PowerCube"))
+		if (other.CompareTag(PowerMorpherTag))
 		{
 			Debug.Log ("Entering Trigger");
 			blendGoal = blendTwo;
 		}
 	}
 
-	void OnTriggerExit() {
-		if (other.CompareTag("Player"))
+	void OnTriggerExit(Collider other)  {
+		if (other.CompareTag(PowerMorpherTag))
 		{
 			Debug.Log ("exiting Trigger");
 			blendGoal = blendOne;
