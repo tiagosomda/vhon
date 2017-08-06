@@ -19,6 +19,15 @@ public class VHONTeleportation : MonoBehaviour {
 	public Transform destinationReticleTransform;
 	public Transform invalidReticleTransform;
 
+    public Color pointerLockedColor;
+    public Color pointerValidColor;
+
+    private Vector3 pointedAtPosition;
+
+    public Transform offsetReticleTransform;
+
+    private TeleportMarkerBase pointedAtTeleportMarker;
+
     private void Awake()
     {
         Line = this.GetComponent<LineRenderer>();
@@ -57,12 +66,11 @@ public class VHONTeleportation : MonoBehaviour {
             NVRHelpers.LineRendererSetWidth(Line, LineWidth, LineWidth);
             RaycastHit hitInfo;
 
-			teleportArc.DrawArc(out hitInfo);
+			//teleportArc.DrawArc(out hitInfo);
             bool hit = Physics.Raycast(this.transform.position, this.transform.forward, out hitInfo, 1000);
             Vector3 endPoint;
             if (hit == true)
             {
-				
                 endPoint = hitInfo.point;
                 if (Hand.Inputs[NVRButtons.Trigger].PressDown == true)
                 {
@@ -90,7 +98,6 @@ public class VHONTeleportation : MonoBehaviour {
 
     private void VHONTeleport()
     {
-        /*
         Vector3 pointerStart = Hand.gameObject.transform.position; //pointerStartTransform.position;
 		Vector3 pointerEnd;
 		Vector3 pointerDir = Hand.gameObject.transform.forward; //pointerStartTransform.forward;
@@ -132,10 +139,10 @@ public class VHONTeleportation : MonoBehaviour {
 			{
 			    teleportArc.SetColor( pointerLockedColor );
                 #if (UNITY_5_4)
-				pointerLineRenderer.SetColors( pointerLockedColor, pointerLockedColor );
+				Line.SetColors( pointerLockedColor, pointerLockedColor ); //pointerLineRenderer.SetColors( pointerLockedColor, pointerLockedColor );
                 #else
-				pointerLineRenderer.startColor = pointerLockedColor;
-				pointerLineRenderer.endColor = pointerLockedColor;
+				Line.startColor = pointerLockedColor;//pointerLineRenderer.startColor = pointerLockedColor;
+				Line.endColor = pointerLockedColor;//pointerLineRenderer.endColor = pointerLockedColor;
                 #endif
 				destinationReticleTransform.gameObject.SetActive( false );
 			}
@@ -143,10 +150,10 @@ public class VHONTeleportation : MonoBehaviour {
 			{
 			    teleportArc.SetColor( pointerValidColor );
                 #if (UNITY_5_4)
-				pointerLineRenderer.SetColors( pointerValidColor, pointerValidColor );
+				Line.SetColors( pointerValidColor, pointerValidColor );//pointerLineRenderer.SetColors( pointerValidColor, pointerValidColor );
                 #else
-				pointerLineRenderer.startColor = pointerValidColor;
-				pointerLineRenderer.endColor = pointerValidColor;
+				Line.startColor = pointerValidColor;//pointerLineRenderer.startColor = pointerValidColor;
+				Line.endColor = pointerValidColor; //pointerLineRenderer.endColor = pointerValidColor;
                 #endif
 				destinationReticleTransform.gameObject.SetActive( hitTeleportMarker.showReticle );
 			}
@@ -158,6 +165,6 @@ public class VHONTeleportation : MonoBehaviour {
 			pointedAtTeleportMarker = hitTeleportMarker;
 			pointedAtPosition = hitInfo.point;
         }
-        */
+        
     }         
 }
