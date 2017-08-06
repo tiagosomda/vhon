@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: PowerCube
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 0fa7db6c7d1a50c45a1cc54400706119, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -62,15 +62,19 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _MaxGlow: 1.328
     - _Metallic: 0
+    - _MinGlow: 0.098
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _PulseSpeed: 5.2
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _Transpearancy: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.027876468, g: 0.21685612, b: 0.8000001, a: 1}
+    - _Color: {r: 0, g: 0.5448277, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
