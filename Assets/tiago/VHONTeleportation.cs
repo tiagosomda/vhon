@@ -70,16 +70,12 @@ public class VHONTeleportation : MonoBehaviour {
 
     private void LateUpdate()
     {
-        //Line.enabled = (Hand != null && Hand.Inputs[NVRButtons.Trigger].SingleAxis > 0.01f);
-
-        Line.enabled = (Hand != null && Hand.Inputs[NVRButtons.Touchpad].IsPressed);
-        if (Line.enabled == true)
+        if (Hand.Inputs[NVRButtons.Touchpad].IsPressed || Hand.Inputs[NVRButtons.Touchpad].PressUp == true)
         {
-            //NvrTeleport();
             VHONTeleport();
         }
         else {
-            teleportArc.Hide();
+            //teleportArc.Hide();
             HidePointer();
         }
     }
@@ -91,11 +87,12 @@ public class VHONTeleportation : MonoBehaviour {
             NVRHelpers.LineRendererSetWidth(Line, LineWidth, LineWidth);
             RaycastHit hitInfo;
 
-			//teleportArc.DrawArc(out hitInfo);
-            bool hit = Physics.Raycast(this.transform.position, this.transform.forward, out hitInfo, 1000);
+			bool hit = teleportArc.DrawArc(out hitInfo);
+            //bool hit = Physics.Raycast(this.transform.position, this.transform.forward, out hitInfo, 1000);
             Vector3 endPoint;
             if (hit == true)
             {
+                Debug.Log("HIT SOMETHING!");
                 endPoint = hitInfo.point;
                 if (Hand.Inputs[NVRButtons.Touchpad].PressDown == true)
                 {
@@ -113,12 +110,33 @@ public class VHONTeleportation : MonoBehaviour {
                         RHandInteractable.transform.position =Player.RightHand.transform.position;
                     }
                 }
+
+                Debug.Log("TELEPORTING? : " + Hand.Inputs[NVRButtons.Touchpad].PressUp);
+                if (Hand.Inputs[NVRButtons.Touchpad].PressUp == true)
+                {
+                    Debug.Log("TELEPORTING!!!!!!!!!!!!!!!");
+                    NVRInteractable LHandInteractable = Player.LeftHand.CurrentlyInteracting;
+                    NVRInteractable RHandInteractable = Player.RightHand.CurrentlyInteracting;
+                    Vector3 offset = Player.Head.transform.position - Player.transform.position;
+                    offset.y = 0;
+                    Player.transform.position = hitInfo.point - offset;
+                    if (LHandInteractable != null)
+                    {
+                        LHandInteractable.transform.position = Player.LeftHand.transform.position;
+                    }
+                    if (RHandInteractable != null)
+                    {
+                        RHandInteractable.transform.position =Player.RightHand.transform.position;
+                    }
+                }
             }
             else
             {
+                Debug.Log("HIT NOTHING!");
                 endPoint = this.transform.position + (this.transform.forward * 1000f);
             }
-            Line.SetPositions(new Vector3[] { this.transform.position, endPoint });
+            
+            //Line.SetPositions(new Vector3[] { this.transform.position, endPoint });
     }
 
     private void VHONTeleport()
@@ -183,6 +201,25 @@ public class VHONTeleportation : MonoBehaviour {
                 #endif
 				destinationReticleTransform.gameObject.SetActive( hitTeleportMarker.showReticle );
                 destinationReticleTransform.rotation = Quaternion.LookRotation(Vector3.forward); //Quaternion. .Slerp( invalidReticleTransform.rotation, invalidReticleTargetRotation, 0.1f );
+
+                if (Hand.Inputs[NVRButtons.Touchpad].PressUp == true)
+                {
+                    Debug.Log("TELEPORT NOOW");
+
+                    NVRInteractable LHandInteractable = Player.LeftHand.CurrentlyInteracting;
+                    NVRInteractable RHandInteractable = Player.RightHand.CurrentlyInteracting;
+                    Vector3 offset = Player.Head.transform.position - Player.transform.position;
+                    offset.y = 0;
+                    Player.transform.position = hitInfo.point - offset;
+                    if (LHandInteractable != null)
+                    {
+                        LHandInteractable.transform.position = Player.LeftHand.transform.position;
+                    }
+                    if (RHandInteractable != null)
+                    {
+                        RHandInteractable.transform.position =Player.RightHand.transform.position;
+                    }
+                }
 			}
 
 			offsetReticleTransform.gameObject.SetActive( true );
