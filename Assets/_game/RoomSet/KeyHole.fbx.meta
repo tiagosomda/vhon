@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: f7558d6afdfb03242813a6f007469702
-timeCreated: 1501991044
+guid: 35c6fac4ac43c4046829b7917bd69a1a
+timeCreated: 1501990866
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Wall
+    4300000: KeyHole
   materials:
     importMaterials: 1
     materialName: 0

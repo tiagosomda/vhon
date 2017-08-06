@@ -1,15 +1,15 @@
 fileFormatVersion: 2
-guid: f7558d6afdfb03242813a6f007469702
-timeCreated: 1501991044
+guid: f874a787d5fda2b46bb295f4d38f6feb
+timeCreated: 1501990871
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Wall
+    4300000: Orcube
+    9500000: //RootNode
+    13700000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -79,7 +79,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

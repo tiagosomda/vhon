@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 02420252ec80b3148bad9ac026286b24
-timeCreated: 1501920013
+guid: 498c0050a0a37084d9b59c6122baca3c
+timeCreated: 1501990821
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: FloorPlane
+    4300000: FloorTabbed
   materials:
     importMaterials: 1
     materialName: 0

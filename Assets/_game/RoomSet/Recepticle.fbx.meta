@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: f7558d6afdfb03242813a6f007469702
-timeCreated: 1501991044
+guid: 0646f1ee8e7b85f4cac78056cf97f6d7
+timeCreated: 1501990892
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Wall
+    4300000: Charger
   materials:
     importMaterials: 1
     materialName: 0

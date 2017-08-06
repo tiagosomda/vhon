@@ -1,15 +1,22 @@
 fileFormatVersion: 2
-guid: f7558d6afdfb03242813a6f007469702
-timeCreated: 1501991044
+guid: 59554ac153e7cd84e950a28de98994b1
+timeCreated: 1501990851
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Wall
+    100000: ForceCage
+    100002: //RootNode
+    100004: ForceField
+    400000: ForceCage
+    400002: //RootNode
+    400004: ForceField
+    2300000: ForceCage
+    2300002: ForceField
+    3300000: ForceCage
+    3300002: ForceField
+    4300000: ForceCage
+    4300002: ForceField
   materials:
     importMaterials: 1
     materialName: 0

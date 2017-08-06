@@ -1,36 +1,43 @@
 fileFormatVersion: 2
-guid: 1275bfb001e7da44d92ff8aeb66d92fc
-timeCreated: 1501920236
+guid: b51dc9e0d5cb4534aac6f89b771ef564
+timeCreated: 1501990484
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Door
-    100004: Door.001
-    100006: DoorFram
-    100008: WallWithDoor
-    400000: //RootNode
-    400002: Door
-    400004: Door.001
-    400006: DoorFram
-    400008: WallWithDoor
+    100000: Camera
+    100002: //RootNode
+    100004: Door
+    100006: Door.001
+    100008: DoorFram
+    100010: Lamp
+    100012: WallWithDoor
+    100014: WallWithDoorBack
+    400000: Camera
+    400002: //RootNode
+    400004: Door
+    400006: Door.001
+    400008: DoorFram
+    400010: Lamp
+    400012: WallWithDoor
+    400014: WallWithDoorBack
+    2000000: Camera
     2300000: Door
     2300002: Door.001
     2300004: DoorFram
     2300006: WallWithDoor
+    2300008: WallWithDoorBack
     3300000: Door
     3300002: Door.001
     3300004: DoorFram
     3300006: WallWithDoor
+    3300008: WallWithDoorBack
     4300000: Door.001
     4300002: Door
     4300004: DoorFram
-    4300006: WallWithDoor
-    6400000: Door
-    6400002: Door.001
-    6400004: DoorFram
-    6400006: WallWithDoor
+    4300006: WallWithDoorBack
+    4300008: WallWithDoor
+    10800000: Lamp
   materials:
     importMaterials: 1
     materialName: 0
@@ -60,7 +67,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
