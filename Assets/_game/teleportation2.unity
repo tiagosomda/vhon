@@ -207,6 +207,10 @@ Prefab:
       propertyPath: m_Name
       value: VHONTeleportArea
       objectReference: {fileID: 0}
+    - target: {fileID: 1005970875752194, guid: b7fc10e3160e6d5468689d5bb878255b, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114555675589910442, guid: b7fc10e3160e6d5468689d5bb878255b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b7fc10e3160e6d5468689d5bb878255b, type: 2}
