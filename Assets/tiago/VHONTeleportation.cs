@@ -76,8 +76,10 @@ public class VHONTeleportation : MonoBehaviour {
         {
             VHONTeleport();
         }
-        else {
-            //teleportArc.Hide();
+
+        if(Hand.Inputs[NVRButtons.Touchpad].PressUp == true)
+        {
+            teleportArc.Hide();
             HidePointer();
         }
     }
@@ -218,8 +220,6 @@ public class VHONTeleportation : MonoBehaviour {
                     {
                         RHandInteractable.transform.position =Player.RightHand.transform.position;
                     }
-
-                    HidePointer();
                 }
 			}
 
