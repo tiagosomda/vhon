@@ -5,6 +5,9 @@ using NewtonVR;
 
 public class AttachAndCast : NVRAttachJoint
 {
+    
+    public List<GameObject> acceptableObjects;
+
     // Time after attach but before events
     public float attachTriggerTimeout = .25f;
     public List<GameObject> attachTriggers;
@@ -20,6 +23,13 @@ public class AttachAndCast : NVRAttachJoint
         _attachCoroutines = new List<Coroutine>();
         _detachCoroutines = new List<Coroutine>();
 	}
+
+    // This override enforces copatability with acceptble objs to interact with
+    protected override void OnTriggerStay(Collider col)
+    {
+        if (IsAttached == false && acceptableObjects.Contains(col.gameObject))
+            base.OnTriggerStay(col);
+    }
 
     protected override void Attach(NVRAttachPoint point)
     {
