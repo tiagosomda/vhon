@@ -13,6 +13,9 @@ public class OrcubeShapeChange : MonoBehaviour {
 	float blendGoal;
 	bool isSet;
 
+	SphereCollider sphereCollider;
+	BoxCollider boxCollider;
+
 	void Start(){
 		skinnedMeshRenderer = gameObject.GetComponent<SkinnedMeshRenderer> ();
 		blendGoal = blendOne;

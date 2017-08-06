@@ -4,8 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - PowerCube
   - PowerMorpher
+  - projectile
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX

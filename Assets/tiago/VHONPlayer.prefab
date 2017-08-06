@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114376904686514922}
   - component: {fileID: 114968436672922134}
   - component: {fileID: 114509799085601190}
+  - component: {fileID: 114231781968762118}
   m_Layer: 0
   m_Name: VHONPlayer
   m_TagString: Untagged
@@ -54,6 +55,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4098295259179774}
   - component: {fileID: 114119912105609480}
+  - component: {fileID: 114803345990543280}
+  - component: {fileID: 114563298521873400}
   m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
@@ -114,7 +117,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1318517821783684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.091, y: 0, z: -1.131}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4994721547482070}
@@ -230,6 +233,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd93dbead6c28e42b0408c298a10966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114231781968762118
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1318517821783684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1487c36fb75d2924e8bff712895f43c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HoldButton: 2
+  UseButton: 17
+  IsRight: 0
+  IsLeft: 0
+  Player: {fileID: 0}
+  CurrentInteractionStyle: 0
+  Rigidbody: {fileID: 0}
+  CustomModel: {fileID: 0}
+  CustomPhysicalColliders: {fileID: 0}
+  CurrentHandState: 0
+  CurrentlyInteracting: {fileID: 0}
+  OnBeginInteraction:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: NewtonVR.NVRHand+NVRInteractableEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnEndInteraction:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: NewtonVR.NVRHand+NVRInteractableEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  PhysicalController: {fileID: 0}
 --- !u!114 &114259694426522012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -274,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 692596da9ff9cdd4aa3dd605c1e0df5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SteamVREnabled: 0
+  SteamVREnabled: 1
   OculusSDKEnabled: 0
   InteractionStyle: 0
   PhysicalHands: 1
@@ -340,6 +376,38 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
+--- !u!114 &114563298521873400
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1732254983862360}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a043c731a29ecd745a9270fbf002ee68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  segmentCount: 60
+  thickness: 0.01
+  arcDuration: 3
+  segmentBreak: 0.025
+  arcSpeed: 0.2
+  material: {fileID: 2100000, guid: 140bd0e59d9bee94f9f0284c9eef5b32, type: 2}
+  traceLayerMask: 0
+--- !u!114 &114803345990543280
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1732254983862360}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ec4f57a00755943a46fca7650cdc8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleportArc: {fileID: 114563298521873400}
+  LineColor: {r: 0, g: 0.83448267, b: 1, a: 0.566}
+  LineWidth: 0.02
 --- !u!114 &114968436672922134
 MonoBehaviour:
   m_ObjectHideFlags: 1
