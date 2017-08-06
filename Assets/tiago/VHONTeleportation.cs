@@ -75,12 +75,12 @@ public class VHONTeleportation : MonoBehaviour {
         Line.enabled = (Hand != null && Hand.Inputs[NVRButtons.Touchpad].IsPressed);
         if (Line.enabled == true)
         {
-            NvrTeleport();
-            //VHONTeleport();
+            //NvrTeleport();
+            VHONTeleport();
         }
         else {
-            //teleportArc.Hide();
-            //HidePointer();
+            teleportArc.Hide();
+            HidePointer();
         }
     }
 
