@@ -59,7 +59,6 @@ GameObject:
   - component: {fileID: 33462041893730804}
   - component: {fileID: 23285310204231136}
   - component: {fileID: 64056332811035532}
-  - component: {fileID: 114974242689644596}
   m_Layer: 0
   m_Name: Recepticle
   m_TagString: Untagged
@@ -74,7 +73,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1931431732306854}
   m_LocalRotation: {x: -0.65069634, y: -0.2767567, z: -0.2767567, w: 0.65069634}
-  m_LocalPosition: {x: 1, y: 0, z: 3}
+  m_LocalPosition: {x: -1.48, y: 0, z: 2.977}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 4833115134527322}
@@ -178,7 +177,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1295167599181794}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
@@ -270,24 +269,20 @@ MonoBehaviour:
   MatchRotation: 1
   acceptableObjects:
   - {fileID: 0}
-  attachTriggerTimeout: 0.25
+  attachTriggerTimeout: 0
   attachTriggers:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   detachTriggerTimeout: 0.175
   detachTriggers:
   - {fileID: 0}
---- !u!114 &114974242689644596
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1931431732306854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5acc68a2ecf98824ba3f8fa739c53028, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Material: 5
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!135 &135171209092684478
 SphereCollider:
   m_ObjectHideFlags: 1
