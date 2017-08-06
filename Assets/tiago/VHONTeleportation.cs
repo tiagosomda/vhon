@@ -276,7 +276,8 @@ public class VHONTeleportation : MonoBehaviour {
 			Line.startColor = pointerInvalidColor; //pointerLineRenderer.startColor = pointerInvalidColor;
 			Line.endColor = pointerInvalidColor; //pointerLineRenderer.endColor = pointerInvalidColor;
             #endif
-			//invalidReticleTransform.gameObject.SetActive( false ); //invalidReticleTransform.gameObject.SetActive( !pointerAtBadAngle );
+			//invalidReticleTransform.gameObject.SetActive( false ); 
+            invalidReticleTransform.gameObject.SetActive( !pointerAtBadAngle );
 
 			//Orient the invalid reticle to the normal of the trace hit point
 			Vector3 normalToUse = hitInfo.normal;
