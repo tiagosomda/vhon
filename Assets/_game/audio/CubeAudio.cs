@@ -17,6 +17,8 @@ public class CubeAudio : MonoBehaviour {
     public AudioSource oneShotAudio;
     public AudioSource suckSource;
 
+    private float defaultVolume;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -31,7 +33,7 @@ public class CubeAudio : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
+        defaultVolume = audiosource.volume;
     }
 
     // Update is called once per frame
@@ -50,23 +52,23 @@ public class CubeAudio : MonoBehaviour {
     }
     public void GoHi()
     {
-        audiosource.Stop();
-        audiosource.clip = LoopHi;
+        audiosource.volume = defaultVolume / 2.0f;
         StartCoroutine(PlayLoopRise());
     }
 
     public void GoLow()
     {
-        audiosource.Stop();
-        audiosource.clip = LoopLow;
+        audiosource.volume = defaultVolume / 2.0f;
         StartCoroutine(PlayLoopFall());
-
     }
 
     IEnumerator PlayLoopRise()
     {
         oneShotAudio.PlayOneShot(LoopRise);
         yield return new WaitForSeconds(LoopRise.length);
+        audiosource.Stop();
+        audiosource.clip = LoopHi;
+        audiosource.volume = defaultVolume;
         audiosource.Play();
 
     }
@@ -74,6 +76,9 @@ public class CubeAudio : MonoBehaviour {
     {
         oneShotAudio.PlayOneShot(LoopFall);
         yield return new WaitForSeconds(LoopFall.length);
+        audiosource.Stop();
+        audiosource.clip = LoopLow;
+        audiosource.volume = defaultVolume;
         audiosource.Play();
 
     }
