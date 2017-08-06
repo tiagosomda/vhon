@@ -12,6 +12,7 @@ public class DoorOpenClose : MonoBehaviour {
 	private float right_Open;
 	private Transform DoorRight;
 
+	private DoorAudio da; 
 
 	// temp variable
 	private Vector3 pos;
@@ -27,6 +28,9 @@ public class DoorOpenClose : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		da = DoorAudio.Instance;
+
 		left_Open = -1;
 		right_Open = 1;
 
@@ -72,6 +76,10 @@ public class DoorOpenClose : MonoBehaviour {
 		{
 			targetLeft = left_Open;
 			targetRight = right_Open;
+
+			da.Open();
+		} else {
+			da.Close();
 		}
 
 		left_Start = DoorLeft.localPosition.x;

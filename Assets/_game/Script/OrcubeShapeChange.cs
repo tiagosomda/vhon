@@ -33,7 +33,6 @@ public class OrcubeShapeChange : MonoBehaviour {
 
 		if (other.CompareTag(PowerMorpherTag))
 		{
-			Debug.Log ("Entering Trigger");
 			blendGoal = blendTwo;
             ca.GoHi();
         }
@@ -42,16 +41,8 @@ public class OrcubeShapeChange : MonoBehaviour {
 	void OnTriggerExit(Collider other)  {
 		if (other.CompareTag(PowerMorpherTag))
 		{
-			Debug.Log ("exiting Trigger");
 			blendGoal = blendOne;
             ca.GoLow();
 		}
 	}
-
-
-
-
-
-
-
 }
