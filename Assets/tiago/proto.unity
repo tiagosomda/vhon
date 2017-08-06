@@ -198,6 +198,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 82573786535155244, guid: b3e55f651817af84a9f2f7cddd5d899c,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.188
+      objectReference: {fileID: 0}
+    - target: {fileID: 82897767562034140, guid: b3e55f651817af84a9f2f7cddd5d899c,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.179
+      objectReference: {fileID: 0}
+    - target: {fileID: 82235117019915404, guid: b3e55f651817af84a9f2f7cddd5d899c,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.373
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b3e55f651817af84a9f2f7cddd5d899c, type: 2}
   m_IsPrefabParent: 0
@@ -250,6 +265,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114067100469207994, guid: a309279683ea5714695e42105c33abbf,
+        type: 2}
+      propertyPath: attachTriggers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 114067100469207994, guid: a309279683ea5714695e42105c33abbf,
         type: 2}
       propertyPath: acceptableObjects.Array.size
@@ -325,6 +345,11 @@ Prefab:
       propertyPath: AttachRange
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 114067100469207994, guid: a309279683ea5714695e42105c33abbf,
+        type: 2}
+      propertyPath: attachTriggers.Array.data[1]
+      value: 
+      objectReference: {fileID: 1144794130}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a309279683ea5714695e42105c33abbf, type: 2}
   m_IsPrefabParent: 0

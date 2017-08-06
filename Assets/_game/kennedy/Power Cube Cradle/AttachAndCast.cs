@@ -29,12 +29,15 @@ public class AttachAndCast : NVRAttachJoint
     {
         if (IsAttached == false && acceptableObjects.Contains(col.gameObject))
         {
+            //col.gameObject.GetComponent<OrcubeShapeChange>().ca.GoSuck();
             base.OnTriggerStay(col);
             Debug.Log("Is NOt Attached");
         }
 
         Debug.Log("Is attached");
     }
+
+
 
     protected override void Attach(NVRAttachPoint point)
     {

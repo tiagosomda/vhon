@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OrcubeShapeChange : MonoBehaviour {
 
-    private CubeAudio ca;
+    public CubeAudio ca;
 
 	public string PowerMorpherTag = "PowerMorpher";
 
@@ -35,7 +35,7 @@ public class OrcubeShapeChange : MonoBehaviour {
 		{
 			Debug.Log ("Entering Trigger");
 			blendGoal = blendTwo;
-            //ca.GoHi();
+            ca.GoHi();
         }
 	}
 
@@ -44,7 +44,7 @@ public class OrcubeShapeChange : MonoBehaviour {
 		{
 			Debug.Log ("exiting Trigger");
 			blendGoal = blendOne;
-            //ca.GoLow();
+            ca.GoLow();
 		}
 	}
 

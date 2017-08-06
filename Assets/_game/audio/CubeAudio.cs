@@ -39,6 +39,11 @@ public class CubeAudio : MonoBehaviour {
 		
 	}
 
+    public void DefaultTrigger(bool state)
+    {
+        GoSuck();
+    }
+
     public void GoSuck()
     {
         suckSource.PlayOneShot(Suck);
