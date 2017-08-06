@@ -9,7 +9,6 @@ public class DoorAudio : MonoBehaviour {
 
     public AudioClip DoorOpen;
     public AudioClip DoorClose;
-    public AudioClip InsertKey;
 
     private AudioSource AudioSourceDoor;
 
@@ -42,11 +41,4 @@ public class DoorAudio : MonoBehaviour {
         AudioSourceDoor.PlayOneShot(DoorClose);
 
     }
-
-    public void Insert()
-    {
-        AudioSourceDoor.Stop();
-        AudioSourceDoor.PlayOneShot(InsertKey);
-    }
-
 }
