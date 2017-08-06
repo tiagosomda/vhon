@@ -40,10 +40,10 @@ GameObject:
   - component: {fileID: 54922976570348038}
   - component: {fileID: 114249741836480242}
   - component: {fileID: 65822964319923516}
-  - component: {fileID: 114982454582107506}
   - component: {fileID: 114341602106171982}
-  - component: {fileID: 114791227191725434}
   - component: {fileID: 114379650101581494}
+  - component: {fileID: 114791227191725434}
+  - component: {fileID: 114982454582107506}
   m_Layer: 0
   m_Name: PowerCube
   m_TagString: Untagged
@@ -133,7 +133,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.012733732, y: 0.012733732, z: 0.012733732}
+  m_Size: {x: 0.01, y: 0.01, z: 0.01}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &82573786535155244
 AudioSource:

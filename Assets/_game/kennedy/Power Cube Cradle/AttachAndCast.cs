@@ -28,13 +28,19 @@ public class AttachAndCast : NVRAttachJoint
     protected override void OnTriggerStay(Collider col)
     {
         if (IsAttached == false && acceptableObjects.Contains(col.gameObject))
+        {
             base.OnTriggerStay(col);
+            Debug.Log("Is NOt Attached");
+        }
+
+        Debug.Log("Is attached");
     }
 
     protected override void Attach(NVRAttachPoint point)
     {
         base.Attach(point);
-
+        
+        Debug.Log("Attach method");
         StartCoroutine(AttachTriggers());
     }
 
@@ -51,12 +57,14 @@ public class AttachAndCast : NVRAttachJoint
 
         foreach (GameObject other in attachTriggers)
         {
+            Debug.Log("Foreach");
             if (_detachCoroutines.Count > 0)
             {
                 foreach (Coroutine c in _detachCoroutines)
                     StopCoroutine(c);
             }
 
+            Debug.Log("Send DefaultTrigger");
             other.SendMessage("DefaultTrigger", true,
                 SendMessageOptions.DontRequireReceiver);
         }
