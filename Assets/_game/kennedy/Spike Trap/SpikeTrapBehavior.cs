@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class SpikeTrapBehavior : MonoBehaviour
 {
+	//for controlling spike movement speed
+	public AnimationCurve curve;
+
+
     /// Client API
 
     public enum State
@@ -50,7 +54,7 @@ public class SpikeTrapBehavior : MonoBehaviour
 	
     private Vector3 desiredPosition;
 
-    /*
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -61,7 +65,7 @@ public class SpikeTrapBehavior : MonoBehaviour
                 Close();
         }
     }
-    */
+    
 
     public bool defaultTriggerReverseMode;
 
@@ -88,8 +92,9 @@ public class SpikeTrapBehavior : MonoBehaviour
         var travelPercentage = 0f;
         Vector3 startPos = moveObject.transform.localPosition;
         Vector3 movePos;
+		float now = Time.time;
 
-        var speed = 1 / transitionSecs;
+        //var speed = 1 / transitionSecs;
         desiredPosition = DetermineDesiredPosition();
         travelPercentage = 0f;
 
@@ -97,9 +102,11 @@ public class SpikeTrapBehavior : MonoBehaviour
         {
             yield return new WaitForEndOfFrame();
 
-            travelPercentage += Time.deltaTime * speed;
+            //travelPercentage += Time.deltaTime * speed;
 
-            movePos = Vector3.Lerp(startPos, desiredPosition, travelPercentage);
+			// curve.Valuate to add nonlinear spike movement controlled by animation curve 
+			//movePos = Vector3.Lerp(startPos, desiredPosition, travelPercentage)
+			movePos = desiredPosition * curve.Evaluate((Time.time - now) /transitionSecs );
             moveObject.transform.localPosition = movePos;
         }
     }
