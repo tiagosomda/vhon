@@ -59,8 +59,8 @@ public class VHONTeleportation : MonoBehaviour {
         Line.enabled = (Hand != null && Hand.Inputs[NVRButtons.Touchpad].IsPressed);
         if (Line.enabled == true)
         {
-            //NvrTeleport();
-            VHONTeleport();
+            NvrTeleport();
+            //VHONTeleport();
         }
         else {
             teleportArc.Hide();
@@ -80,7 +80,7 @@ public class VHONTeleportation : MonoBehaviour {
             if (hit == true)
             {
                 endPoint = hitInfo.point;
-                if (Hand.Inputs[NVRButtons.Trigger].PressDown == true)
+                if (Hand.Inputs[NVRButtons.Touchpad].PressDown == true)
                 {
                     NVRInteractable LHandInteractable = Player.LeftHand.CurrentlyInteracting;
                     NVRInteractable RHandInteractable = Player.RightHand.CurrentlyInteracting;

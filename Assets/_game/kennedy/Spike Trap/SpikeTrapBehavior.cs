@@ -63,6 +63,26 @@ public class SpikeTrapBehavior : MonoBehaviour
     }
     */
 
+    public bool defaultTriggerReverseMode;
+
+    private void DefaultTrigger(bool activate)
+    {
+        if (defaultTriggerReverseMode)
+        {
+            if (activate)
+                Close();
+            else
+                Open();
+        }
+        else  // Normal mode
+        {
+            if (activate)
+                Open();
+            else
+                Close();
+        }
+    }
+
     private IEnumerator DoMove()
     {
         var travelPercentage = 0f;
