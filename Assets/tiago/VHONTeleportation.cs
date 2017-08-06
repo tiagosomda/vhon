@@ -52,11 +52,13 @@ public class VHONTeleportation : MonoBehaviour {
         if (Line == null)
         {
             Line = this.gameObject.AddComponent<LineRenderer>();
+            Line.SetVertexCount(0);
         }
+
         if (Line.sharedMaterial == null)
         {
-            Line.material = new Material(Shader.Find("Unlit/Color"));
-            Line.material.SetColor("_Color", LineColor);
+            //Line.material = new Material(Shader.Find("Unlit/Color"));
+            //Line.material.SetColor("_Color", LineColor);
             NVRHelpers.LineRendererSetColor(Line, LineColor, LineColor);
         }
         Line.useWorldSpace = true;
@@ -80,6 +82,7 @@ public class VHONTeleportation : MonoBehaviour {
         }
     }
 
+    /*
     private void NvrTeleport()
     {
             Line.material.SetColor("_Color", LineColor);
@@ -111,10 +114,8 @@ public class VHONTeleportation : MonoBehaviour {
                     }
                 }
 
-                Debug.Log("TELEPORTING? : " + Hand.Inputs[NVRButtons.Touchpad].PressUp);
                 if (Hand.Inputs[NVRButtons.Touchpad].PressUp == true)
                 {
-                    Debug.Log("TELEPORTING!!!!!!!!!!!!!!!");
                     NVRInteractable LHandInteractable = Player.LeftHand.CurrentlyInteracting;
                     NVRInteractable RHandInteractable = Player.RightHand.CurrentlyInteracting;
                     Vector3 offset = Player.Head.transform.position - Player.transform.position;
@@ -138,10 +139,10 @@ public class VHONTeleportation : MonoBehaviour {
             
             //Line.SetPositions(new Vector3[] { this.transform.position, endPoint });
     }
+    */
 
     private void VHONTeleport()
     {
-        Debug.Log("VHONTING");
         Vector3 pointerStart = Hand.gameObject.transform.position; //pointerStartTransform.position;
 		Vector3 pointerEnd;
 		Vector3 pointerDir = Hand.gameObject.transform.forward; //pointerStartTransform.forward;
@@ -204,8 +205,6 @@ public class VHONTeleportation : MonoBehaviour {
 
                 if (Hand.Inputs[NVRButtons.Touchpad].PressUp == true)
                 {
-                    Debug.Log("TELEPORT NOOW");
-
                     NVRInteractable LHandInteractable = Player.LeftHand.CurrentlyInteracting;
                     NVRInteractable RHandInteractable = Player.RightHand.CurrentlyInteracting;
                     Vector3 offset = Player.Head.transform.position - Player.transform.position;
@@ -219,6 +218,8 @@ public class VHONTeleportation : MonoBehaviour {
                     {
                         RHandInteractable.transform.position =Player.RightHand.transform.position;
                     }
+
+                    HidePointer();
                 }
 			}
 
@@ -275,7 +276,7 @@ public class VHONTeleportation : MonoBehaviour {
 			Line.startColor = pointerInvalidColor; //pointerLineRenderer.startColor = pointerInvalidColor;
 			Line.endColor = pointerInvalidColor; //pointerLineRenderer.endColor = pointerInvalidColor;
             #endif
-			invalidReticleTransform.gameObject.SetActive( !pointerAtBadAngle );
+			//invalidReticleTransform.gameObject.SetActive( false ); //invalidReticleTransform.gameObject.SetActive( !pointerAtBadAngle );
 
 			//Orient the invalid reticle to the normal of the trace hit point
 			Vector3 normalToUse = hitInfo.normal;
@@ -329,8 +330,8 @@ public class VHONTeleportation : MonoBehaviour {
 		//onDeactivateObjectTransform.position = pointerEnd;
 		offsetReticleTransform.position = pointerEnd - playerFeetOffset;
 		//reticleAudioSource.transform.position = pointedAtPosition;
-		Line.SetPosition( 0, pointerStart ); //pointerLineRenderer.SetPosition( 0, pointerStart );
-		Line.SetPosition( 1, pointerEnd ); //pointerLineRenderer.SetPosition( 1, pointerEnd );
+		//Line.SetPosition( 0, pointerStart ); //pointerLineRenderer.SetPosition( 0, pointerStart );
+		//Line.SetPosition( 1, pointerEnd ); //pointerLineRenderer.SetPosition( 1, pointerEnd );
     }         
 
     private void HighlightSelected(TeleportMarkerBase hitTeleportMarker )

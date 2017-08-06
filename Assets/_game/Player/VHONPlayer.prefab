@@ -894,9 +894,9 @@ MonoBehaviour:
   LineWidth: 0.02
   destinationReticleTransform: {fileID: 4718610610271648}
   invalidReticleTransform: {fileID: 4602810582904350}
-  pointerLockedColor: {r: 0, g: 0, b: 0, a: 0}
-  pointerValidColor: {r: 0, g: 0, b: 0, a: 0}
-  pointerInvalidColor: {r: 0, g: 0, b: 0, a: 0}
+  pointerLockedColor: {r: 1, g: 1, b: 1, a: 1}
+  pointerValidColor: {r: 0, g: 1, b: 0.048275948, a: 1}
+  pointerInvalidColor: {r: 1, g: 1, b: 1, a: 1}
   debugFloor: 0
   showOffsetReticle: 0
   offsetReticleTransform: {fileID: 4299400866273488}
