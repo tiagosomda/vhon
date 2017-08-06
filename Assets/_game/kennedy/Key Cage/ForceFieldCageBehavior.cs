@@ -57,6 +57,7 @@ public class ForceFieldCageBehavior : MonoBehaviour
 
     private void DefaultTrigger(bool activate)
     {
+        activate = !activate;
         if (activate)
             Open();
         else

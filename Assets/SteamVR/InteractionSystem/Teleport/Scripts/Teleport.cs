@@ -348,23 +348,23 @@ namespace Valve.VR.InteractionSystem
 				if ( hitTeleportMarker.locked )
 				{
 					teleportArc.SetColor( pointerLockedColor );
-#if (UNITY_5_4)
+					#if (UNITY_5_4)
 					pointerLineRenderer.SetColors( pointerLockedColor, pointerLockedColor );
-#else
+					#else
 					pointerLineRenderer.startColor = pointerLockedColor;
 					pointerLineRenderer.endColor = pointerLockedColor;
-#endif
+					#endif
 					destinationReticleTransform.gameObject.SetActive( false );
 				}
 				else
 				{
 					teleportArc.SetColor( pointerValidColor );
-#if (UNITY_5_4)
+					#if (UNITY_5_4)
 					pointerLineRenderer.SetColors( pointerValidColor, pointerValidColor );
-#else
+					#else
 					pointerLineRenderer.startColor = pointerValidColor;
 					pointerLineRenderer.endColor = pointerValidColor;
-#endif
+					#endif
 					destinationReticleTransform.gameObject.SetActive( hitTeleportMarker.showReticle );
 				}
 
