@@ -52,8 +52,11 @@ public class AttachAndCast : NVRAttachJoint
     {
         yield return new WaitForSeconds(attachTriggerTimeout);
 
+
         foreach (GameObject other in attachTriggers)
         {
+
+
             if (_detachCoroutines.Count > 0)
             {
                 foreach (Coroutine c in _detachCoroutines)

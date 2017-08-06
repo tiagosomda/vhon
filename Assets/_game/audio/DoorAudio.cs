@@ -26,13 +26,14 @@ public class DoorAudio : MonoBehaviour {
 
     private void Start()
     {
-        AudioSourceDoor = GameObject.FindObjectOfType<AudioSource>();
+        AudioSourceDoor = GetComponent<AudioSource>();
     }
 
     public void Open()
     {
         AudioSourceDoor.Stop();
         AudioSourceDoor.PlayOneShot(DoorOpen);
+        Debug.Log("Playing door audio");
     }
 
     public void Close()

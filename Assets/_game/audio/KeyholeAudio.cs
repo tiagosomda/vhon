@@ -25,7 +25,11 @@ public class KeyholeAudio : MonoBehaviour {
 
     private void Start()
     {
-        AudioSource = GameObject.FindObjectOfType<AudioSource>();
+        AudioSource = GetComponent<AudioSource>();
+    }
+    public void DefaultTrigger(bool state)
+    {
+        Insert();
     }
 
     public void Insert()
