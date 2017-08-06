@@ -55,13 +55,24 @@ public class ForceFieldCageBehavior : MonoBehaviour
         mover = StartCoroutine(DoMove());
     }
 
+    public bool defaultTriggerReverseMode;
+
     private void DefaultTrigger(bool activate)
     {
-        activate = !activate;
-        if (activate)
-            Open();
-        else
-            Close();
+        if (defaultTriggerReverseMode)
+        {
+            if (activate)
+                Close();
+            else
+                Open();
+        }
+        else  // Normal mode
+        {
+            if (activate)
+                Open();
+            else
+                Close();
+        }
     }
 
 

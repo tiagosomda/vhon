@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 23785894007487118}
   - component: {fileID: 64229277745579664}
   - component: {fileID: 114025652495005464}
+  - component: {fileID: 114130888686695304}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -242,6 +243,7 @@ GameObject:
   - component: {fileID: 23720987003750642}
   - component: {fileID: 64785274466649210}
   - component: {fileID: 114096379382986934}
+  - component: {fileID: 114608776987128354}
   m_Layer: 0
   m_Name: Floor (1)
   m_TagString: Untagged
@@ -535,7 +537,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1303187500273470}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0.00000023841858, z: 0}
+  m_LocalPosition: {x: -1, y: 0.00000023841858, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 4669239180293924}
@@ -722,7 +724,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1959960561251672}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0.00000047684, z: 0.068071}
+  m_LocalPosition: {x: 1, y: 0.00000047684, z: 0.068071}
   m_LocalScale: {x: 100, y: 96.596436, z: 100}
   m_Children: []
   m_Father: {fileID: 4669239180293924}
@@ -1853,7 +1855,7 @@ MonoBehaviour:
   transitionSecs: 10
   closedPosition: {x: 0, y: 0, z: 0}
   openPosition: {x: 0, y: -3, z: 0}
-  defaultTriggerReverseMode: 0
+  defaultTriggerReverseMode: 1
 --- !u!114 &114025652495005464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1912,7 +1914,7 @@ MonoBehaviour:
   transitionSecs: 10
   closedPosition: {x: 0, y: 0, z: 0}
   openPosition: {x: 0, y: -3, z: 0}
-  defaultTriggerReverseMode: 0
+  defaultTriggerReverseMode: 1
 --- !u!114 &114096379382986934
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1925,6 +1927,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Material: 4
+--- !u!114 &114130888686695304
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1277338861583494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92f6181c8d0716b4ea09fa11e04e1dc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked: 0
+  markerActive: 1
 --- !u!114 &114187317581003534
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2044,6 +2059,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Material: 4
+--- !u!114 &114608776987128354
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1522486130920222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92f6181c8d0716b4ea09fa11e04e1dc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked: 0
+  markerActive: 1
 --- !u!114 &114718390551533766
 MonoBehaviour:
   m_ObjectHideFlags: 1
