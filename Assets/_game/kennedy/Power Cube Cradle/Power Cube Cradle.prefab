@@ -37,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1781128396225326}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -99,8 +99,12 @@ MonoBehaviour:
   AttachRange: 0.01
   DropDistance: 0.1
   MatchRotation: 1
+  acceptableObjects:
+  - {fileID: 0}
+  - {fileID: 0}
   attachTriggerTimeout: 0.25
-  attachTriggers: []
+  attachTriggers:
+  - {fileID: 0}
   detachTriggerTimeout: 0.175
   detachTriggers: []
 --- !u!135 &135558623707454624
