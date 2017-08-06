@@ -272,7 +272,6 @@ MonoBehaviour:
   attachTriggerTimeout: 0.25
   attachTriggers:
   - {fileID: 0}
-  - {fileID: 0}
   detachTriggerTimeout: 0.175
   detachTriggers:
   - {fileID: 0}
