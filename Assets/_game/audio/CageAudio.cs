@@ -31,14 +31,11 @@ public class CageAudio : MonoBehaviour {
 
     public void DefaultTrigger(bool state)
     {
-        Debug.Log("DefaultTrigger");
         if (state)
         {
-            Debug.Log("ForceFieldOpen");
             Open();
         } else
         {
-            Debug.Log("ForceFieldClose");
             Close();
         }
     }

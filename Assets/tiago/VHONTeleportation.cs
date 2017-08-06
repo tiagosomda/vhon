@@ -9,6 +9,7 @@ public class VHONTeleportation : MonoBehaviour {
 
 	public Valve.VR.InteractionSystem.TeleportArc teleportArc;
 
+    public LayerMask traceLayerMask;
     public float arcDistance;
     public Color LineColor;
     public float LineWidth = 0.02f;
@@ -43,6 +44,8 @@ public class VHONTeleportation : MonoBehaviour {
             NVRHelpers.LineRendererSetColor(Line, LineColor, LineColor);
         }
         Line.useWorldSpace = true;
+
+        teleportArc.traceLayerMask = traceLayerMask;
     }
     private void Start()
     {
@@ -51,11 +54,16 @@ public class VHONTeleportation : MonoBehaviour {
 
     private void LateUpdate()
     {
-        Line.enabled = (Hand != null && Hand.Inputs[NVRButtons.Trigger].SingleAxis > 0.01f);
+        //Line.enabled = (Hand != null && Hand.Inputs[NVRButtons.Trigger].SingleAxis > 0.01f);
+
+        Line.enabled = (Hand != null && Hand.Inputs[NVRButtons.Touchpad].IsPressed);
         if (Line.enabled == true)
         {
-            NvrTeleport();
-            //VHONTeleport();
+            //NvrTeleport();
+            VHONTeleport();
+        }
+        else {
+            teleportArc.Hide();
         }
     }
 
@@ -98,6 +106,7 @@ public class VHONTeleportation : MonoBehaviour {
 
     private void VHONTeleport()
     {
+        Debug.Log("VHONTING");
         Vector3 pointerStart = Hand.gameObject.transform.position; //pointerStartTransform.position;
 		Vector3 pointerEnd;
 		Vector3 pointerDir = Hand.gameObject.transform.forward; //pointerStartTransform.forward;
@@ -124,7 +133,6 @@ public class VHONTeleportation : MonoBehaviour {
 		{
 			hitSomething = true;
 		}
-
 
         if ( pointerAtBadAngle )
 		{
@@ -165,6 +173,57 @@ public class VHONTeleportation : MonoBehaviour {
 			pointedAtTeleportMarker = hitTeleportMarker;
 			pointedAtPosition = hitInfo.point;
         }
-        
+        /*
+        else //Hit neither
+		{
+				destinationReticleTransform.gameObject.SetActive( false );
+				offsetReticleTransform.gameObject.SetActive( false );
+
+				teleportArc.SetColor( pointerInvalidColor );
+#if (UNITY_5_4)
+				pointerLineRenderer.SetColors( pointerInvalidColor, pointerInvalidColor );
+#else
+				pointerLineRenderer.startColor = pointerInvalidColor;
+				pointerLineRenderer.endColor = pointerInvalidColor;
+#endif
+				invalidReticleTransform.gameObject.SetActive( !pointerAtBadAngle );
+
+				//Orient the invalid reticle to the normal of the trace hit point
+				Vector3 normalToUse = hitInfo.normal;
+				float angle = Vector3.Angle( hitInfo.normal, Vector3.up );
+				if ( angle < 15.0f )
+				{
+					normalToUse = Vector3.up;
+				}
+				invalidReticleTargetRotation = Quaternion.FromToRotation( Vector3.up, normalToUse );
+				invalidReticleTransform.rotation = Quaternion.Slerp( invalidReticleTransform.rotation, invalidReticleTargetRotation, 0.1f );
+
+				//Scale the invalid reticle based on the distance from the player
+				float distanceFromPlayer = Vector3.Distance( hitInfo.point, player.hmdTransform.position );
+				float invalidReticleCurrentScale = Util.RemapNumberClamped( distanceFromPlayer, invalidReticleMinScaleDistance, invalidReticleMaxScaleDistance, invalidReticleMinScale, invalidReticleMaxScale );
+				invalidReticleScale.x = invalidReticleCurrentScale;
+				invalidReticleScale.y = invalidReticleCurrentScale;
+				invalidReticleScale.z = invalidReticleCurrentScale;
+				invalidReticleTransform.transform.localScale = invalidReticleScale;
+
+				pointedAtTeleportMarker = null;
+
+				if ( hitSomething )
+				{
+					pointerEnd = hitInfo.point;
+				}
+				else
+				{
+					pointerEnd = teleportArc.GetArcPositionAtTime( teleportArc.arcDuration );
+				}
+
+				//Debug floor
+				if ( debugFloor )
+				{
+					floorDebugSphere.gameObject.SetActive( false );
+					floorDebugLine.gameObject.SetActive( false );
+				}
+		}
+        */
     }         
 }

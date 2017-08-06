@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: ForceFeildMat
-  m_Shader: {fileID: 4800000, guid: 0fa7db6c7d1a50c45a1cc54400706119, type: 3}
+  m_Shader: {fileID: 4800000, guid: d8790b43ca4866946b85ae2e5b45f556, type: 3}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -63,8 +63,12 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _MaxGlow: 1.5
+    - _MaxPowerMultiplier: 1
+    - _MaxTransperancy: 1
     - _Metallic: 0
     - _MinGlow: 0.5
+    - _MinPowerMultiplier: 1
+    - _MinimumTranspearancey: 0.3
     - _Mode: 3
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -73,6 +77,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Transpearancy: 0.623
+    - _TranspearancyFrequency: 1
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
