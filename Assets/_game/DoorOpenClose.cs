@@ -5,6 +5,7 @@ using UnityEngine;
 public class DoorOpenClose : MonoBehaviour {
 
 	public float animationInSecs;
+
 	private float left_Open;
 	private Transform DoorLeft;
 
