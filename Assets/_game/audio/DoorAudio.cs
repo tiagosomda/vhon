@@ -33,7 +33,6 @@ public class DoorAudio : MonoBehaviour {
     {
         AudioSourceDoor.Stop();
         AudioSourceDoor.PlayOneShot(DoorOpen);
-        Debug.Log("Playing door audio");
     }
 
     public void Close()

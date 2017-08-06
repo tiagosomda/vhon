@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NewtonVR;
 
 public class ForceFieldCageBehavior : MonoBehaviour
 {
@@ -12,14 +13,25 @@ public class ForceFieldCageBehavior : MonoBehaviour
         Open,
     }
 
+    public NVRInteractableItem key;
+    public BoxCollider keyCollider;
     public State desiredState = State.Closed;
     public GameObject moveObject;
     public float transitionSecs = 3;
 
     private Coroutine mover;
 
+    void Start()
+    {
+        key.enabled = false;
+        keyCollider = key.gameObject.GetComponent<BoxCollider>();
+        keyCollider.enabled = false;
+    }
+
     public void Open()
     {
+        key.enabled = true;
+        keyCollider.enabled = true;
         desiredState = State.Open;
 
         if (mover != null)

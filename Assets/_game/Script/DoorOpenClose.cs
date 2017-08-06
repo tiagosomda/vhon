@@ -78,7 +78,6 @@ public class DoorOpenClose : MonoBehaviour {
 			targetRight = right_Open;
 
 			da.Open();
-			Debug.Log("Play Open Door Audio");
 		} else {
 			da.Close();
 		}
