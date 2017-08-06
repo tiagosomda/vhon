@@ -11,9 +11,11 @@ public class CubeAudio : MonoBehaviour {
     public AudioClip LoopHi;
     public AudioClip LoopRise;
     public AudioClip LoopFall;
+    public AudioClip Suck;
 
     public AudioSource audiosource;
     public AudioSource oneShotAudio;
+    public AudioSource suckSource;
 
     private void Awake()
     {
@@ -27,18 +29,20 @@ public class CubeAudio : MonoBehaviour {
         }
     }
 
-
-
     // Use this for initialization
     void Start () {
-        //audiosource = GameObject.FindObjectOfType<AudioSource>();
-        //oneShotAudio = new AudioSource();
+
     }
 
     // Update is called once per frame
     void Update () {
 		
 	}
+
+    public void GoSuck()
+    {
+        suckSource.PlayOneShot(Suck);
+    }
     public void GoHi()
     {
         audiosource.Stop();
