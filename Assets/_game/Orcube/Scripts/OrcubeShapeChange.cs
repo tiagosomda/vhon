@@ -23,7 +23,7 @@ public class OrcubeShapeChange : MonoBehaviour {
 
 	//Mathf.Lerp(skinnedMeshRenderer.GetBlendShapeWeight(0),blendGoal,blendSpeed)
 	void Update(){
-		skinnedMeshRenderer.SetBlendShapeWeight(0,Mathf.Lerp(skinnedMeshRenderer.GetBlendShapeWeight(0), blendGoal,blendSpeed * Time.deltaTime));
+		skinnedMeshRenderer.SetBlendShapeWeight(0,Mathf.Lerp(skinnedMeshRenderer.GetBlendShapeWeight(0), blendGoal, blendSpeed * Time.deltaTime));
 	}
 
 	void OnTriggerEnter(Collider other) {
