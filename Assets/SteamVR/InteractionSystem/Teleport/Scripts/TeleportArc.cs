@@ -25,7 +25,7 @@ namespace Valve.VR.InteractionSystem
 
 		public Material material;
 
-		[HideInInspector]
+		//[HideInInspector]
 		public int traceLayerMask = 0;
 
 		//Private data
