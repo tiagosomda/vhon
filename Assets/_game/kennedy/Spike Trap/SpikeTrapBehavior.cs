@@ -103,8 +103,6 @@ public class SpikeTrapBehavior : MonoBehaviour
             yield return new WaitForEndOfFrame();
 
             travelPercentage += Time.deltaTime * speed;
-
-			 
 			movePos = Vector3.Lerp(startPos, desiredPosition, travelPercentage);
             // curve.Valuate to add nonlinear spike movement controlled by animation curve
 			//movePos = desiredPosition * curve.Evaluate((Time.time - now) /transitionSecs );
