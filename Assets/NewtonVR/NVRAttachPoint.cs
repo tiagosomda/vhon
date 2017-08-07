@@ -54,6 +54,7 @@ namespace NewtonVR
         public virtual void Attached(NVRAttachJoint joint)
         {
             Vector3 targetPosition = joint.transform.position + (Item.transform.position - this.transform.position);
+
             Rigidbody.MovePosition(targetPosition);
             if (joint.MatchRotation == true)
             {
