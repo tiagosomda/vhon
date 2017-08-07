@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NewtonVR;
 
 public class SceneManagerBehavior : MonoBehaviour
 {
@@ -26,8 +27,7 @@ public class SceneManagerBehavior : MonoBehaviour
     private bool cpIntruction;
     private float instructionTime;
 
-
-    public GameObject controller;
+    public NVRPlayer player;
     public float unlockControlsWait;
     private bool cpUnlockControls;
     private float unlockControlsTime;
@@ -40,6 +40,9 @@ public class SceneManagerBehavior : MonoBehaviour
     void Start()
     {
         introClipTime = Mathf.Max(introWait, 0.0001f);
+
+        player.LeftHand.gameObject.SetActive(false);
+        player.RightHand.gameObject.SetActive(false);
     }
 
     void Update()
@@ -82,7 +85,8 @@ public class SceneManagerBehavior : MonoBehaviour
         {
             cpUnlockControls = true;
 
-            controller.SetActive(true);
+            player.LeftHand.gameObject.SetActive(true);
+            player.RightHand.gameObject.SetActive(true);
             Debug.Log("Unlocked controls");
         }
     }
