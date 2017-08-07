@@ -94,7 +94,7 @@ public class SpikeTrapBehavior : MonoBehaviour
         Vector3 movePos;
 		float now = Time.time;
 
-        //var speed = 1 / transitionSecs;
+        var speed = 1 / transitionSecs;
         desiredPosition = DetermineDesiredPosition();
         travelPercentage = 0f;
 
@@ -102,11 +102,12 @@ public class SpikeTrapBehavior : MonoBehaviour
         {
             yield return new WaitForEndOfFrame();
 
-            //travelPercentage += Time.deltaTime * speed;
+            travelPercentage += Time.deltaTime * speed;
 
-			// curve.Valuate to add nonlinear spike movement controlled by animation curve 
-			//movePos = Vector3.Lerp(startPos, desiredPosition, travelPercentage)
-			movePos = desiredPosition * curve.Evaluate((Time.time - now) /transitionSecs );
+			 
+			movePos = Vector3.Lerp(startPos, desiredPosition, travelPercentage);
+            // curve.Valuate to add nonlinear spike movement controlled by animation curve
+			//movePos = desiredPosition * curve.Evaluate((Time.time - now) /transitionSecs );
             moveObject.transform.localPosition = movePos;
         }
     }

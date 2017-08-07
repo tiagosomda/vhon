@@ -27,6 +27,13 @@ public class SceneManagerBehavior : MonoBehaviour
     private bool cpIntruction;
     private float instructionTime;
 
+
+    public AudioClip successClip;
+    public GameObject successDoor;
+
+
+
+
     public NVRPlayer player;
 
     private  VHONTeleportation LeftTeleport;
@@ -100,6 +107,18 @@ public class SceneManagerBehavior : MonoBehaviour
         RightTeleport.enabled = true;
             //Debug.Log("Unlocked controls");
         }
+
+        
+    }
+
+    public IEnumerator SuccessAction()
+    {
+        audioSource.PlayOneShot(successClip);
+
+        yield return new WaitForSeconds(successClip.length);
+
+        successDoor.SendMessage("DefaultTrigger", true ,SendMessageOptions.DontRequireReceiver);
+
     }
 
 
