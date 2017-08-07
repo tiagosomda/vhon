@@ -42,13 +42,13 @@ public class CubeAudio : MonoBehaviour {
     }
     public void GoHi()
     {
-        audiosource.volume = defaultVolume / 2.0f;
+        audiosource.volume = defaultVolume / 8.0f;
         StartCoroutine(PlayLoopRise());
     }
 
     public void GoLow()
     {
-        audiosource.volume = defaultVolume / 2.0f;
+        audiosource.volume = defaultVolume / 8.0f;
         StartCoroutine(PlayLoopFall());
     }
 
