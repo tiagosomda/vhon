@@ -4,24 +4,13 @@ using UnityEngine;
 
 public class SpikeAudio : MonoBehaviour {
 
-    private static SpikeAudio _instance;
-    public static SpikeAudio Instance { get { return _instance; } }
-
+    public bool skipFirstTime;
     public AudioClip RoofDrop;
-
-
     private AudioSource AudioSource;
+
 
     private void Awake()
     {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            _instance = this;
-        }
     }
 
     private void Start()
@@ -31,12 +20,20 @@ public class SpikeAudio : MonoBehaviour {
 
     public void DefaultTrigger(bool state)
     {
-        Drop();
+        if(skipFirstTime)
+        {
+            skipFirstTime = false;
+            return;
+        }
+
+        AudioSource.Stop();
+        
+        if(!state)
+            AudioSource.PlayOneShot(RoofDrop);
     }
 
     public void Drop()
     {
-        AudioSource.Stop();
-        AudioSource.PlayOneShot(RoofDrop);
+
     }
 }

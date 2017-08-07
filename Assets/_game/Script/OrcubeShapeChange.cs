@@ -19,7 +19,7 @@ public class OrcubeShapeChange : MonoBehaviour {
 	BoxCollider boxCollider;
 
 	void Start(){
-		ca = CubeAudio.Instance;
+		ca = GetComponent<CubeAudio>();
 		skinnedMeshRenderer = gameObject.GetComponent<SkinnedMeshRenderer> ();
 		blendGoal = blendOne;
 	}

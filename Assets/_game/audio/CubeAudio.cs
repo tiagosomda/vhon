@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class CubeAudio : MonoBehaviour {
 
-    private static CubeAudio _instance;
-    public static CubeAudio Instance { get { return _instance; } }
-
     public AudioClip LoopLow;
     public AudioClip LoopHi;
     public AudioClip LoopRise;
@@ -21,14 +18,7 @@ public class CubeAudio : MonoBehaviour {
 
     private void Awake()
     {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            _instance = this;
-        }
+
     }
 
     // Use this for initialization

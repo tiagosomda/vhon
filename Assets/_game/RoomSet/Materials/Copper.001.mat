@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Copper.001
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: d8790b43ca4866946b85ae2e5b45f556, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -62,15 +62,23 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _MaxGlow: 1.083
+    - _MaxPowerMultiplier: 1
+    - _MaxTransperancy: 1
     - _Metallic: 0
+    - _MinGlow: 0.176
+    - _MinPowerMultiplier: 1
+    - _MinimumTranspearancey: 1
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _PulseSpeed: 20
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _TranspearancyFrequency: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.4793202, g: 0.17144114, b: 0.033104777, a: 1}
+    - _Color: {r: 1, g: 0.066176474, b: 0.066176474, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
