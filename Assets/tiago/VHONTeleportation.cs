@@ -52,7 +52,7 @@ public class VHONTeleportation : MonoBehaviour {
         if (Line == null)
         {
             Line = this.gameObject.AddComponent<LineRenderer>();
-            Line.SetVertexCount(0);
+            Line.positionCount = 0;
         }
 
         if (Line.sharedMaterial == null)
@@ -149,7 +149,7 @@ public class VHONTeleportation : MonoBehaviour {
 		Vector3 pointerEnd;
 		Vector3 pointerDir = Hand.gameObject.transform.forward; //pointerStartTransform.forward;
 		bool hitSomething = false;
-		bool showPlayAreaPreview = false;
+		//bool showPlayAreaPreview = false;
 		Vector3 playerFeetOffset = Player.gameObject.transform.position; //player.trackingOriginTransform.position - player.feetPositionGuess;
 		Vector3 arcVelocity = pointerDir * arcDistance; //arcDistance;
 		

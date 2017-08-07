@@ -28,6 +28,11 @@ public class SceneManagerBehavior : MonoBehaviour
     private float instructionTime;
 
     public NVRPlayer player;
+
+    private  VHONTeleportation LeftTeleport;
+    private  VHONTeleportation RightTeleport;
+
+
     public float unlockControlsWait;
     private bool cpUnlockControls;
     private float unlockControlsTime;
@@ -41,8 +46,13 @@ public class SceneManagerBehavior : MonoBehaviour
     {
         introClipTime = Mathf.Max(introWait, 0.0001f);
 
-        player.LeftHand.gameObject.SetActive(false);
-        player.RightHand.gameObject.SetActive(false);
+        LeftTeleport = player.LeftHand.GetComponent<VHONTeleportation>();
+        RightTeleport = player.RightHand.GetComponent<VHONTeleportation>();
+
+        LeftTeleport.enabled = false;
+        RightTeleport.enabled = false;
+
+        Debug.Log("Disabling hands");
     }
 
     void Update()
@@ -54,7 +64,7 @@ public class SceneManagerBehavior : MonoBehaviour
             cpIntroClip = true;
 
             audioSource.PlayOneShot(introClip);
-            Debug.Log("played introClip");
+            //Debug.Log("played introClip");
 
             fadeInTime = timer + introClip.length + fadeInWait;
             return;
@@ -65,7 +75,7 @@ public class SceneManagerBehavior : MonoBehaviour
             cpFadeIn = true;
 
             StartCoroutine(FadeIn());
-            Debug.Log("started FadeIn");
+            //Debug.Log("started FadeIn");
 
             instructionTime = timer + fadeInDuration + instructionWait;
             return;
@@ -76,18 +86,19 @@ public class SceneManagerBehavior : MonoBehaviour
             cpIntruction = true;
 
             audioSource.PlayOneShot(instructionClip);
-            Debug.Log("played instructionClip");
+            //Debug.Log("played instructionClip");
 
             unlockControlsTime = timer + instructionClip.length + unlockControlsWait;
         }
 
+        
         else if (!cpUnlockControls && unlockControlsTime != 0 && timer > unlockControlsTime)
         {
             cpUnlockControls = true;
 
-            player.LeftHand.gameObject.SetActive(true);
-            player.RightHand.gameObject.SetActive(true);
-            Debug.Log("Unlocked controls");
+        LeftTeleport.enabled = true;
+        RightTeleport.enabled = true;
+            //Debug.Log("Unlocked controls");
         }
     }
 
