@@ -29,7 +29,7 @@ public class DoorOpenClose : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		da = DoorAudio.Instance;
+		da = GetComponent<DoorAudio>();
 
 		left_Open = -1;
 		right_Open = 1;
