@@ -20,16 +20,16 @@ public class VHONTeleportArea : TeleportMarkerBase
 	//-------------------------------------------------
 	public void Awake()
 	{
-		areaMesh = GetComponent<MeshRenderer>();
-		tintColorId = Shader.PropertyToID( "_TintColor" );
-		CalculateBounds();
+		//areaMesh = GetComponent<MeshRenderer>();
+		//tintColorId = Shader.PropertyToID( "_TintColor" );
+		//CalculateBounds();
 	}
 	//-------------------------------------------------
 	public void Start()
 	{
-		//visibleTintColor = Teleport.instance.areaVisibleMaterial.GetColor( tintColorId );
-		//highlightedTintColor = Teleport.instance.areaHighlightedMaterial.GetColor( tintColorId );
-		//lockedTintColor = Teleport.instance.areaLockedMaterial.GetColor( tintColorId );
+		//visibleTintColor = VHONTeleportRight.instance.areaVisibleMaterial.GetColor( tintColorId );
+		//highlightedTintColor = VHONTeleportRight.instance.areaHighlightedMaterial.GetColor( tintColorId );
+		//lockedTintColor = VHONTeleportRight.instance.areaLockedMaterial.GetColor( tintColorId );
 	}
 	//-------------------------------------------------
 	public override bool ShouldActivate( Vector3 playerPosition )
@@ -44,55 +44,55 @@ public class VHONTeleportArea : TeleportMarkerBase
 	//-------------------------------------------------
 	public override void Highlight( bool highlight )
 	{
-		if ( !locked )
+/* 		if ( !locked )
 		{
 			highlighted = highlight;
 			if ( highlight )
 			{
-				//areaMesh.material = Teleport.instance.areaHighlightedMaterial;
+				areaMesh.material = VHONTeleportRight.instance.areaHighlightedMaterial;
 			}
 			else
 			{
-				//areaMesh.material = Teleport.instance.areaVisibleMaterial;
+				areaMesh.material = VHONTeleportRight.instance.areaVisibleMaterial;
 			}
-		}
+		} */
 	}
 	//-------------------------------------------------
 	public override void SetAlpha( float tintAlpha, float alphaPercent )
 	{
-		Color tintedColor = GetTintColor();
+/*  		Color tintedColor = GetTintColor();
 		tintedColor.a *= alphaPercent;
-		areaMesh.material.SetColor( tintColorId, tintedColor );
+		areaMesh.material.SetColor( tintColorId, tintedColor ); */
 	}
 	//-------------------------------------------------
 	public override void UpdateVisuals()
 	{
-		if ( locked )
+/* 		if ( locked )
 		{
-			areaMesh.material = Teleport.instance.areaLockedMaterial;
+			areaMesh.material = VHONTeleportRight.instance.areaLockedMaterial;
 		}
 		else
 		{
-			areaMesh.material = Teleport.instance.areaVisibleMaterial;
-		}
+			areaMesh.material = VHONTeleportRight.instance.areaVisibleMaterial;
+		} */
 	}
 	//-------------------------------------------------
 	public void UpdateVisualsInEditor()
 	{
-		areaMesh = GetComponent<MeshRenderer>();
+/* 		areaMesh = GetComponent<MeshRenderer>();
 		if ( locked )
 		{
-			areaMesh.sharedMaterial = Teleport.instance.areaLockedMaterial;
+			areaMesh.sharedMaterial = VHONTeleportRight.instance.areaLockedMaterial;
 		}
 		else
 		{
-			areaMesh.sharedMaterial = Teleport.instance.areaVisibleMaterial;
-		}
+			areaMesh.sharedMaterial = VHONTeleportRight.instance.areaVisibleMaterial;
+		} */
 	}
 	//-------------------------------------------------
 	private bool CalculateBounds()
 	{
-		MeshFilter meshFilter = GetComponent<MeshFilter>();
+/* 		MeshFilter meshFilter = GetComponent<MeshFilter>();
 		if ( meshFilter == null )
 		{
 			return false;
@@ -103,12 +103,14 @@ public class VHONTeleportArea : TeleportMarkerBase
 			return false;
 		}
 		meshBounds = mesh.bounds;
+		return true; */
+
 		return true;
 	}
 	//-------------------------------------------------
 	private Color GetTintColor()
 	{
-		if ( locked )
+/* 		if ( locked )
 		{
 			return lockedTintColor;
 		}
@@ -122,21 +124,23 @@ public class VHONTeleportArea : TeleportMarkerBase
 			{
 				return visibleTintColor;
 			}
-		}
+		} */
+
+		return Color.white;
 	}
 }
 
 #if UNITY_EDITOR
 //-------------------------------------------------------------------------
-[CustomEditor( typeof( TeleportArea ) )]
-public class TeleportAreaEditor : Editor
+[CustomEditor( typeof( VHONTeleportArea ) )]
+public class VHONTeleportAreaEditor : Editor
 {
 		//-------------------------------------------------
 	void OnEnable()
 	{
 		if ( Selection.activeTransform != null )
 		{
-			TeleportArea teleportArea = Selection.activeTransform.GetComponent<TeleportArea>();
+			VHONTeleportArea teleportArea = Selection.activeTransform.GetComponent<VHONTeleportArea>();
 			if ( teleportArea != null )
 			{
 				teleportArea.UpdateVisualsInEditor();
@@ -152,7 +156,7 @@ public class TeleportAreaEditor : Editor
 
 		if ( Selection.activeTransform != null )
 		{
-			TeleportArea teleportArea = Selection.activeTransform.GetComponent<TeleportArea>();
+			VHONTeleportArea teleportArea = Selection.activeTransform.GetComponent<VHONTeleportArea>();
 			if ( GUI.changed && teleportArea != null )
 			{
 				teleportArea.UpdateVisualsInEditor();

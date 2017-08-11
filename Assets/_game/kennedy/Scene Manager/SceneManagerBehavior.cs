@@ -30,15 +30,12 @@ public class SceneManagerBehavior : MonoBehaviour
 
     public AudioClip successClip;
     public GameObject successDoor;
+    public GameObject backDoor;
 
 
 
 
     public NVRPlayer player;
-
-    private  VHONTeleportation LeftTeleport;
-    private  VHONTeleportation RightTeleport;
-
 
     public float unlockControlsWait;
     private bool cpUnlockControls;
@@ -53,13 +50,7 @@ public class SceneManagerBehavior : MonoBehaviour
     {
         introClipTime = Mathf.Max(introWait, 0.0001f);
 
-        LeftTeleport = player.LeftHand.GetComponent<VHONTeleportation>();
-        RightTeleport = player.RightHand.GetComponent<VHONTeleportation>();
-
-        LeftTeleport.enabled = false;
-        RightTeleport.enabled = false;
-
-        Debug.Log("Disabling hands");
+        VHONTeleport.instance.enabled = false;
     }
 
     void Update()
@@ -102,9 +93,7 @@ public class SceneManagerBehavior : MonoBehaviour
         else if (!cpUnlockControls && unlockControlsTime != 0 && timer > unlockControlsTime)
         {
             cpUnlockControls = true;
-
-        LeftTeleport.enabled = true;
-        RightTeleport.enabled = true;
+            VHONTeleport.instance.enabled = true;
             //Debug.Log("Unlocked controls");
         }
 
@@ -113,11 +102,14 @@ public class SceneManagerBehavior : MonoBehaviour
 
     public IEnumerator SuccessAction()
     {
+        backDoor.SendMessage("DefaultTrigger", true ,SendMessageOptions.DontRequireReceiver);
+        VHONTeleport.instance.enabled = false;
         audioSource.PlayOneShot(successClip);
 
         yield return new WaitForSeconds(successClip.length);
 
         successDoor.SendMessage("DefaultTrigger", true ,SendMessageOptions.DontRequireReceiver);
+        VHONTeleport.instance.enabled = true;
 
     }
 

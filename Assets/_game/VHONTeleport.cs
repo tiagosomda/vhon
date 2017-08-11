@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using Valve.VR;
 using Valve.VR.InteractionSystem;
 using NewtonVR;
-public class VHONTeleportRight : MonoBehaviour {
+public class VHONTeleport : MonoBehaviour {
 
 		public LayerMask traceLayerMask;
 		public LayerMask floorFixupTraceLayerMask;
@@ -116,14 +116,14 @@ public class VHONTeleportRight : MonoBehaviour {
 		public static SteamVR_Events.Action< TeleportMarkerBase > PlayerPreAction( UnityAction< TeleportMarkerBase > action ) { return new SteamVR_Events.Action< TeleportMarkerBase >( PlayerPre, action ); }
 
 		//-------------------------------------------------
-		private static VHONTeleportRight _instance;
-		public static VHONTeleportRight instance
+		private static VHONTeleport _instance;
+		public static VHONTeleport instance
 		{
 			get
 			{
 				if ( _instance == null )
 				{
-					_instance = GameObject.FindObjectOfType<VHONTeleportRight>();
+					_instance = GameObject.FindObjectOfType<VHONTeleport>();
 				}
 
 				return _instance;
@@ -155,6 +155,8 @@ public class VHONTeleportRight : MonoBehaviour {
 			float invalidReticleStartingScale = invalidReticleTransform.localScale.x;
 			invalidReticleMinScale *= invalidReticleStartingScale;
 			invalidReticleMaxScale *= invalidReticleStartingScale;
+
+			visible = true;
 		}
 
 
@@ -375,7 +377,7 @@ public class VHONTeleportRight : MonoBehaviour {
 				if ( showPlayAreaMarker )
 				{
 					//Show the play area marker if this is a teleport area
-					TeleportArea teleportArea = pointedAtTeleportMarker as TeleportArea;
+					VHONTeleportArea teleportArea = pointedAtTeleportMarker as VHONTeleportArea;
 					if ( teleportArea != null && !teleportArea.locked && playAreaPreviewTransform != null )
 					{
 						Vector3 offsetToUse = playerFeetOffset;
@@ -492,7 +494,7 @@ public class VHONTeleportRight : MonoBehaviour {
 			if ( debugFloor )
 			{
 				//Debug floor
-				TeleportArea teleportArea = pointedAtTeleportMarker as TeleportArea;
+				VHONTeleportArea teleportArea = pointedAtTeleportMarker as VHONTeleportArea;
 				if ( teleportArea != null )
 				{
 					if ( floorFixupMaximumTraceDistance > 0.0f )
@@ -507,12 +509,12 @@ public class VHONTeleportRight : MonoBehaviour {
 						{
 							floorDebugSphere.transform.position = raycastHit.point;
 							floorDebugSphere.material.color = Color.green;
-#if (UNITY_5_4)
+							#if (UNITY_5_4)
 							floorDebugLine.SetColors( Color.green, Color.green );
-#else
+							#else
 							floorDebugLine.startColor = Color.green;
 							floorDebugLine.endColor = Color.green;
-#endif
+							#endif
 							floorDebugLine.SetPosition( 0, pointedAtPosition );
 							floorDebugLine.SetPosition( 1, raycastHit.point );
 						}
@@ -521,12 +523,12 @@ public class VHONTeleportRight : MonoBehaviour {
 							Vector3 rayEnd = pointedAtPosition + ( traceDir * floorFixupMaximumTraceDistance );
 							floorDebugSphere.transform.position = rayEnd;
 							floorDebugSphere.material.color = Color.red;
-#if (UNITY_5_4)
+							#if (UNITY_5_4)
 							floorDebugLine.SetColors( Color.red, Color.red );
-#else
+							#else
 							floorDebugLine.startColor = Color.red;
 							floorDebugLine.endColor = Color.red;
-#endif
+							#endif
 							floorDebugLine.SetPosition( 0, pointedAtPosition );
 							floorDebugLine.SetPosition( 1, rayEnd );
 						}
@@ -898,7 +900,7 @@ public class VHONTeleportRight : MonoBehaviour {
 			}
 
 			// Find the actual floor position below the navigation mesh
-			TeleportArea teleportArea = teleportingToMarker as TeleportArea;
+			VHONTeleportArea teleportArea = teleportingToMarker as VHONTeleportArea;
 			if ( teleportArea != null )
 			{
 				if ( floorFixupMaximumTraceDistance > 0.0f )
