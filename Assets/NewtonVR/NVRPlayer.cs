@@ -314,6 +314,25 @@ namespace NewtonVR
             }
         }
 
+        //-------------------------------------------------
+		// Guess for the world-space position of the player's feet, directly beneath the HMD.
+		//-------------------------------------------------
+		public Vector3 feetPositionGuess
+		{
+			get
+			{
+				//NRVReplace//Transform hmd = hmdTransform;
+                Transform hmd = Head.transform;
+				if ( hmd )
+				{
+					//NRVReplace////return trackingOriginTransform.position + Vector3.ProjectOnPlane( hmd.position - trackingOriginTransform.position, trackingOriginTransform.up );
+                    return transform.position + Vector3.ProjectOnPlane( hmd.position - transform.position, transform.up );
+				}
+				//NRVReplace//return trackingOriginTransform.position;
+                return transform.position;
+			}
+		}
+
         private void OnDestroy()
         {
             Instances.Remove(this);
